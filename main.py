@@ -23,13 +23,13 @@ def run(task):
     p = subprocess.run(task, check=True, text=True, capture_output=True)
     logger.debug(p.stderr)
     logger.debug(p.stdout)
+    logger.info(bcolors.OKGREEN + f"finished: {task}" + bcolors.ENDC)
 
 
 def main():
-    
     ### SETUP HERE ###
     os.environ["TESSDATA_PREFIX"] = "C:\\Users\\leucht\\Videos\\tessdata_best\\" # Path tessdata_best as instructed by pgsrip
-    root = Path("Y:\\jellyfin\\shows\\") # Path to directory of .mkv files that you want to convert the subtitles of
+    root = Path("Y:\\jellyfin\\movies\\") # Path to directory of .mkv files that you want to convert the subtitles of
 
     convertables = []
 
