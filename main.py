@@ -29,21 +29,21 @@ def run(task):
 def main():
     ### SETUP HERE ###
     os.environ["TESSDATA_PREFIX"] = "C:\\Users\\leucht\\Videos\\tessdata_best\\" # Path tessdata_best as instructed by pgsrip
-    root = Path("Y:\\jellyfin\\movies\\") # Path to directory of .mkv files that you want to convert the subtitles of
+    root = Path("Z:\\jellyfin\\") # Path to directory of .mkv files that you want to convert the subtitles of
 
-    convertables = []
+    convertibles = []
 
     for path in root.rglob("*"):
 
         logger.debug(path)
         if not path.is_dir() and ".mkv" in path.name: 
 
-            convertables.append(f"pgsrip \"{path.absolute()}\"")
+            convertibles.append(f"pgsrip \"{path.absolute()}\"")
 
-    logger.debug(convertables)
+    logger.debug(convertibles)
 
     pool = Pool()
-    for _ in tqdm.tqdm(pool.imap_unordered(run, convertables), total=len(convertables)):
+    for _ in tqdm.tqdm(pool.imap_unordered(run, convertibles), total=len(convertibles)):
         pass
 
     logger.info(bcolors.OKGREEN + "Finished" + bcolors.ENDC)
