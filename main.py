@@ -20,7 +20,7 @@ class bcolors:
 def run(task):
     
     logger.info(bcolors.OKCYAN + f"current on: {task}" + bcolors.ENDC)
-    p = subprocess.run(task, check=True, text=True, capture_output=True)
+    p = subprocess.run(["pgsrip", task], check=True, text=True, capture_output=True)
     logger.debug(p.stderr)
     logger.debug(p.stdout)
     logger.info(bcolors.OKGREEN + f"finished: {task}" + bcolors.ENDC)
@@ -38,7 +38,7 @@ def main():
         logger.debug(path)
         if not path.is_dir() and ".mkv" in path.name: 
 
-            convertibles.append(f"pgsrip \"{path.absolute()}\"")
+            convertibles.append(path.absolute())
 
     logger.debug(convertibles)
 
