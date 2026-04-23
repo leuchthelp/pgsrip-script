@@ -42,9 +42,12 @@ def main():
 
     logger.debug(convertibles)
 
-    pool = Pool()
-    for _ in tqdm.tqdm(pool.imap_unordered(run, convertibles), total=len(convertibles)):
-        pass
+    if convertibles:
+        pool = Pool()
+        for _ in tqdm.tqdm(pool.imap_unordered(run, convertibles), total=len(convertibles)):
+            pass
+    else:
+        logger.info(bcolors.OKGREEN + "No files found. Maybe path misconfigured or inaccessible?" + bcolors.ENDC)
 
     logger.info(bcolors.OKGREEN + "Finished" + bcolors.ENDC)
 
