@@ -1,3 +1,9 @@
+***WARNING***
+
+DO NOT USE THIS SCRIPT OR PGSRIP ANYMORE, USE [sub-convert](https://github.com/leuchthelp/sub-convert).
+
+It fixes various issues with pgsrip and provides correct conversions in instances where pgsrip fails.
+
 # pgsrip-script
 
 This is a simple script to batch execute [pgsrip](https://github.com/ratoaq2/pgsrip). pgsrip should already be capable for scanning through subfolders and ripping files in batches, however I could not get my system fully saturated with just the standard options. So I build this simple script to burn through more media at once.
